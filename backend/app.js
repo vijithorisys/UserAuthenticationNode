@@ -1,5 +1,6 @@
 // Import required modules
 const express = require('express');
+const {sequelize}=require("./sequelize")
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -25,6 +26,12 @@ app.get('/', (req, res) => {
 
 // Start the server and listen on port 3000
 const PORT = process.env.PORT || 6000
-app.listen(PORT, () => {
+app.listen(PORT,async () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  try {
+    await sequelize.authenticate();
+    console.log('Database connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 });
