@@ -4,6 +4,8 @@ const {sequelize}=require("./sequelize")
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const authRouter = require('./routes/authRouter');
+const employeeRouter = require('./routes/employeeRouter');
 
 
 // Load environment variables from .env file
@@ -23,6 +25,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
+
+//Routing
+app.use('/auth',authRouter)
+app.use('/employee',employeeRouter)
 
 // Start the server and listen on port 3000
 const PORT = process.env.PORT || 6000

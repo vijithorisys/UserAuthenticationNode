@@ -6,3 +6,6 @@ DB_PASSWORD = ""
 DB_NAME = "user_authentication_node"
 DB_HOST = ""
 DB_DIALECT = "mysql"
+
+//jwt
+SECRET_KEY = "secret"
