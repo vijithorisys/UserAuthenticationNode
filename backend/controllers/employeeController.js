@@ -1,6 +1,7 @@
 const { user } = require("../sequelize")
 
 
+
 const getAll = async (req, res)=>{
     try{
         const userData = await user.findAll()

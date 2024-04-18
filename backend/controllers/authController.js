@@ -10,10 +10,11 @@ dotenv.config();
 const register = async (req, res) => {
     try {
         const { firstName, lastName, email, password } = req.body;
+        console.log(req.body,'firstName')
         // Check if the email is already registered
         const existingUser = await user.findOne({ where: { email } });
         if (existingUser) {
-            return res.status(400).json({
+            return res.status(409).json({
                 message: 'User Already Registered'
             });
         }
