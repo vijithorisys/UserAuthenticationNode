@@ -10,6 +10,14 @@ const Authentication={
         }catch(error){
             return  error.response
         }
+    },
+    async login(formData){
+        try{
+            const response = await axios.post(`${BASE_API}/auth/login`,formData)
+            return response
+        }catch(error){
+            return  error.response
+        }
     }
 }
 
